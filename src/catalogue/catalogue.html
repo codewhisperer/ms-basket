@@ -1,0 +1,18 @@
+<h2>Catalogue</h2>
+<table class="table">
+  <thead>
+    <th>Product</th>
+    <th>Code</th>
+    <th>Price</th>
+    <th></th>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="product in products">
+      <td>{{product.name}}</td>
+      <td>{{product.code}}</td>
+      <td>{{product.price}}</td>
+      <td><a href="#" ng-click="buy(product)">Buy</a></td>
+    </tr>
+  </tbody>
+</table>

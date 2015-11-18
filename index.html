@@ -1,32 +1,17 @@
 <html ng-app="msBasket">
   <head>
-    <script type="text/javascript" src="../node_modules/angular/angular.js"></script>
-    <script type="text/javascript" src="../node_modules/lodash/index.js"></script>
-    <script type="text/javascript" src="../src/index.js"></script>
-    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="node_modules/lodash/index.js"></script>
+
+    <script type="text/javascript" src="src/cartController.js"></script>
+    <script type="text/javascript" src="src/catalogue/catalogue.js"></script>
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   </head>
 
   <body>
-    <div ng-controller="BasketController">
+    <div ng-controller="CartController">
       <div class="container">
-        <h2>Catalogue</h2>
-        <table class="table">
-          <thead>
-            <th>Product</th>
-            <th>Code</th>
-            <th>Price</th>
-            <th></th>
-          </thead>
-
-          <tbody>
-            <tr ng-repeat="product in products">
-              <td>{{product.name}}</td>
-              <td>{{product.code}}</td>
-              <td>{{product.price}}</td>
-              <td><a href="#" ng-click="buy(product)">Buy</a></td>
-            </tr>
-          </tbody>
-        </table>
+        <catalogue products="products" cart="cart" calculate-cart-total="calculateCartTotal()"></catalogue>
 
         <hr>
         <h2>Cart</h2>
@@ -48,12 +33,12 @@
               <td><a href="#" ng-click="removeFromCart(product)">remove</a></td>
             </tr>
             <tr>
-              <td colspan="4"  ng-if="cart.length === 0">Cart is empty.</td>
+              <td colspan="4" ng-if="cart.length === 0">Cart is empty.</td>
             </tr>
             <tr ng-if="discount > 0">
               <td></td>
               <td></td>
-              <td><strong>Discount</strong></td>
+              <td><strong>Jeans discount</strong></td>
               <td><strong>-{{discount.toFixed(2)}}</strong></td>
               <td></td>
             </tr>
