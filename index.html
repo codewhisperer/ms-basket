@@ -8,9 +8,9 @@
   </head>
 
   <body>
-    <div ng-controller="CartController">
+    <div ng-controller="CartController as vm">
       <div class="container">
-        <catalogue cart="cart" calculate-cart-total="calculateCartTotal()"></catalogue>
+        <catalogue cart="vm.cart" calculate-cart-total="vm.calculateCartTotal()"></catalogue>
 
         <hr>
         <h2>Cart</h2>
@@ -24,42 +24,42 @@
           </thead>
 
           <tbody>
-            <tr ng-repeat="product in cart" ng-if="cart.length > 0">
+            <tr ng-repeat="product in vm.cart" ng-if="vm.cart.length > 0">
               <td>{{product.name}}</td>
               <td>{{product.code}}</td>
               <td>{{product.price}}</td>
               <td>{{product.amount}}</td>
-              <td><a href="#" ng-click="removeFromCart(product)">remove</a></td>
+              <td><a href="#" ng-click="vm.removeFromCart(product)">remove</a></td>
             </tr>
             <tr>
-              <td colspan="4" ng-if="cart.length === 0">Cart is empty.</td>
+              <td colspan="4" ng-if="vm.cart.length === 0">Cart is empty.</td>
             </tr>
-            <tr ng-if="discount > 0">
+            <tr ng-if="vm.discount > 0">
               <td></td>
               <td></td>
               <td><strong>Jeans discount</strong></td>
-              <td><strong>-{{discount.toFixed(2)}}</strong></td>
+              <td><strong>-{{vm.discount.toFixed(2)}}</strong></td>
               <td></td>
             </tr>
             <tr>
               <td></td>
               <td></td>
               <td><strong>Subtotal</strong></td>
-              <td><strong>{{subtotal.toFixed(2)}}</strong></td>
+              <td><strong>{{vm.subtotal.toFixed(2)}}</strong></td>
               <td></td>
             </tr>
             <tr>
               <td></td>
               <td></td>
               <td><strong>Delivery surcharge</strong></td>
-              <td><strong>{{delivery.toFixed(2)}}</strong></td>
+              <td><strong>{{vm.delivery.toFixed(2)}}</strong></td>
               <td></td>
             </tr>
             <tr>
               <td></td>
               <td></td>
               <td><strong>Total</strong></td>
-              <td><strong>{{total.toFixed(2)}}</strong></td>
+              <td><strong>{{vm.total.toFixed(2)}}</strong></td>
               <td></td>
             </tr>
           </tbody>

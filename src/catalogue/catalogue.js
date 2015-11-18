@@ -6,39 +6,41 @@
       restrict: 'E',
       scope: {
         cart: '=',
-        calculateCartTotal: '&calculateCartTotal'
+        calculateCartTotal: '&'
       },
-      templateUrl: 'src/catalogue/catalogue.html',
-      link: function ($scope, element) {
-        $scope.products = []
-        $scope.products.push({
+      controller: function() {
+        this.products = []
+        this.products.push({
           name: "Jeans",
           code: "J01",
           price: 32.95,
           amount: 1
         });
-        $scope.products.push({
+        this.products.push({
           name: "Blouse",
           code: "B01",
           price: 24.95,
           amount: 1
         });
-        $scope.products.push({
+        this.products.push({
           name: "Socks",
           code: "S01",
           price: 7.95,
           amount: 1
         });
 
-        $scope.buy = function(product) {
-          if(_.contains($scope.cart, product)) {
-            $scope.cart[_.indexOf($scope.cart, product)].amount++;
+        this.buy = function(product) {
+          if(_.contains(this.cart, product)) {
+            this.cart[_.indexOf(this.cart, product)].amount++;
           } else {
-              $scope.cart.push(product);
+            this.cart.push(product);
           }
-          $scope.calculateCartTotal();
+          this.calculateCartTotal();
         }
-      }
+      },
+      controllerAs: 'vm',
+      bindToController: true,
+      templateUrl: 'src/catalogue/catalogue.html'
     };
   });
 })();

@@ -8,11 +8,11 @@
   </thead>
 
   <tbody>
-    <tr ng-repeat="product in products">
+    <tr ng-repeat="product in vm.products">
       <td>{{product.name}}</td>
       <td>{{product.code}}</td>
       <td>{{product.price}}</td>
-      <td><a href="#" ng-click="buy(product)">Buy</a></td>
+      <td><a href="#" ng-click="vm.buy(product)">Buy</a></td>
     </tr>
   </tbody>
 </table>
