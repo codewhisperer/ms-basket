@@ -2,7 +2,6 @@
   <head>
     <script type="text/javascript" src="node_modules/angular/angular.js"></script>
     <script type="text/javascript" src="node_modules/lodash/index.js"></script>
-
     <script type="text/javascript" src="src/cartController.js"></script>
     <script type="text/javascript" src="src/catalogue/catalogue.js"></script>
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -11,7 +10,7 @@
   <body>
     <div ng-controller="CartController">
       <div class="container">
-        <catalogue products="products" cart="cart" calculate-cart-total="calculateCartTotal()"></catalogue>
+        <catalogue cart="cart" calculate-cart-total="calculateCartTotal()"></catalogue>
 
         <hr>
         <h2>Cart</h2>
