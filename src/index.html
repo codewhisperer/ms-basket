@@ -1,0 +1,87 @@
+<html ng-app="msBasket">
+  <head>
+    <script type="text/javascript" src="../node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="../node_modules/lodash/index.js"></script>
+    <script type="text/javascript" src="../src/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  </head>
+
+  <body>
+    <div ng-controller="BasketController">
+      <div class="container">
+        <h2>Catalogue</h2>
+        <table class="table">
+          <thead>
+            <th>Product</th>
+            <th>Code</th>
+            <th>Price</th>
+            <th></th>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="product in products">
+              <td>{{product.name}}</td>
+              <td>{{product.code}}</td>
+              <td>{{product.price}}</td>
+              <td><a href="#" ng-click="buy(product)">Buy</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <hr>
+        <h2>Cart</h2>
+        <table class="table">
+          <thead>
+            <th>Product</th>
+            <th>Code</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th></th>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="product in cart" ng-if="cart.length > 0">
+              <td>{{product.name}}</td>
+              <td>{{product.code}}</td>
+              <td>{{product.price}}</td>
+              <td>{{product.amount}}</td>
+              <td><a href="#" ng-click="removeFromCart(product)">remove</a></td>
+            </tr>
+            <tr>
+              <td colspan="4"  ng-if="cart.length === 0">Cart is empty.</td>
+            </tr>
+            <tr ng-if="discount > 0">
+              <td></td>
+              <td></td>
+              <td><strong>Discount</strong></td>
+              <td><strong>-{{discount.toFixed(2)}}</strong></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td><strong>Subtotal</strong></td>
+              <td><strong>{{subtotal.toFixed(2)}}</strong></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td><strong>Delivery surcharge</strong></td>
+              <td><strong>{{delivery.toFixed(2)}}</strong></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td><strong>Total</strong></td>
+              <td><strong>{{total.toFixed(2)}}</strong></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </body>
+</html>
