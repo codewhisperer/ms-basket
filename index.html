@@ -1,71 +1,16 @@
-<html ng-app="msBasket">
+<html>
   <head>
     <script type="text/javascript" src="node_modules/angular/angular.js"></script>
     <script type="text/javascript" src="node_modules/lodash/index.js"></script>
-    <script type="text/javascript" src="src/cartController.js"></script>
-    <script type="text/javascript" src="src/catalogue/catalogue.js"></script>
+    <script type="text/javascript" src="app/cartController.js"></script>
+    <script type="text/javascript" src="app/components/catalogue/catalogue.js"></script>
+    <script type="text/javascript" src="app/components/cart/cart.js"></script>
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   </head>
 
-  <body>
+  <body ng-app="msBasket">
     <div ng-controller="CartController as vm">
-      <div class="container">
-        <catalogue cart="vm.cart" calculate-cart-total="vm.calculateCartTotal()"></catalogue>
-
-        <hr>
-        <h2>Cart</h2>
-        <table class="table">
-          <thead>
-            <th>Product</th>
-            <th>Code</th>
-            <th>Price</th>
-            <th>Amount</th>
-            <th></th>
-          </thead>
-
-          <tbody>
-            <tr ng-repeat="product in vm.cart" ng-if="vm.cart.length > 0">
-              <td>{{product.name}}</td>
-              <td>{{product.code}}</td>
-              <td>{{product.price}}</td>
-              <td>{{product.amount}}</td>
-              <td><a href="#" ng-click="vm.removeFromCart(product)">remove</a></td>
-            </tr>
-            <tr>
-              <td colspan="4" ng-if="vm.cart.length === 0">Cart is empty.</td>
-            </tr>
-            <tr ng-if="vm.discount > 0">
-              <td></td>
-              <td></td>
-              <td><strong>Jeans discount</strong></td>
-              <td><strong>-{{vm.discount.toFixed(2)}}</strong></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td><strong>Subtotal</strong></td>
-              <td><strong>{{vm.subtotal.toFixed(2)}}</strong></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td><strong>Delivery surcharge</strong></td>
-              <td><strong>{{vm.delivery.toFixed(2)}}</strong></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td><strong>Total</strong></td>
-              <td><strong>{{vm.total.toFixed(2)}}</strong></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-
-      </div>
+      <cart></cart>
     </div>
   </body>
 </html>

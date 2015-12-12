@@ -11,6 +11,7 @@
       controller: function() {
         var vm = this;
 
+        // vm.products = require('../../data/catalogue.json');
         vm.products = []
         vm.products.push({
           name: "Jeans",
@@ -42,7 +43,7 @@
       },
       controllerAs: 'vm',
       bindToController: true,
-      templateUrl: 'src/catalogue/catalogue.html'
+      templateUrl: 'app/components/catalogue/catalogue.html'
     };
   });
 })();
