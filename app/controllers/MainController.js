@@ -3,7 +3,7 @@
 
   var myApp = angular.module('msBasket',[]);
 
-  myApp.controller('CartController', ['$scope', function($scope) {
+  myApp.controller('MainController', ['$scope', function($scope) {
 
   }]);
 })();
