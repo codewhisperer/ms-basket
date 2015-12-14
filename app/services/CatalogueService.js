@@ -1,12 +1,14 @@
-module.exports = function($http) {
-  return {
-    get: function() {
-      return $http({
-        method: 'GET',
-        url: "data/data.json"
-      });
-    }
-  };
-};
+(function () {
+  'use strict';
 
-module.exports.$inject = ['$http'];
+  angular.module('msBasket').factory('catalogueService', ["$http", function($http) {
+    return {
+      get: function() {
+        return $http({
+          method: 'GET',
+          url: "data/catalogue.json"
+        });
+      }
+    }
+  }]);
+})();

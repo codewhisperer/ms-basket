@@ -1,0 +1,22 @@
+{"products":
+[
+  {
+    "name": "Jeans",
+    "code": "J01",
+    "price": 32.95,
+    "amount": 1
+  },
+  {
+    "name": "Blouse",
+    "code": "B01",
+    "price": 24.95,
+    "amount": 1
+  },
+  {
+    "name": "Socks",
+    "code": "S01",
+    "price": 7.95,
+    "amount": 1
+  }
+]
+}

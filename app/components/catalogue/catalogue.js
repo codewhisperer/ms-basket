@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('msBasket').directive('catalogue', function() {
+  angular.module('msBasket').directive('catalogue', ["catalogueService", function(catalogueService) {
     return {
       restrict: 'E',
       scope: {
@@ -11,25 +11,9 @@
       controller: function() {
         var vm = this;
 
-        // vm.products = require('../../data/catalogue.json');
-        vm.products = []
-        vm.products.push({
-          name: "Jeans",
-          code: "J01",
-          price: 32.95,
-          amount: 1
-        });
-        vm.products.push({
-          name: "Blouse",
-          code: "B01",
-          price: 24.95,
-          amount: 1
-        });
-        vm.products.push({
-          name: "Socks",
-          code: "S01",
-          price: 7.95,
-          amount: 1
+        // load data from service
+        vm.products = catalogueService.get().success(function(result) {
+          vm.products = result.products;
         });
 
         vm.buy = function(product) {
@@ -45,5 +29,5 @@
       bindToController: true,
       templateUrl: 'app/components/catalogue/catalogue.html'
     };
-  });
+  }]);
 })();
