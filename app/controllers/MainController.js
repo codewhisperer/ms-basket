@@ -1,9 +1,10 @@
 (function () {
   'use strict';
 
-  var myApp = angular.module('msBasket',[]);
+  angular.module('msBasket',[])
+    .controller('MainController', function() {});
 
-  myApp.controller('MainController', ['$scope', function($scope) {
+  // load cart component
+  require('../components/cart/cart.js');
 
-  }]);
 })();

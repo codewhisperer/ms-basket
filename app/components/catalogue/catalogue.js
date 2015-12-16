@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  require('../../services/CatalogueService.js')
+
   angular.module('msBasket').directive('catalogue', ["catalogueService", function(catalogueService) {
     return {
       restrict: 'E',
@@ -27,7 +29,7 @@
       },
       controllerAs: 'vm',
       bindToController: true,
-      templateUrl: 'app/components/catalogue/catalogue.html'
+      template: require('./catalogue.html')
     };
   }]);
 })();

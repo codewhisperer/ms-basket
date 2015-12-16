@@ -55,7 +55,10 @@
       },
       controllerAs: 'vm',
       bindToController: true,
-      templateUrl: 'app/components/cart/cart.html'
+      template: require('./cart.html')
     };
   });
+
+  // load catalogue component
+  require('../catalogue/catalogue.js');
 })();
