@@ -1,4 +1,4 @@
-# MS shopping basket with shipping charge and jeans discount
+# angular.js shopping basket with shipping charge and product discount
 To start up run:
 
 ```
